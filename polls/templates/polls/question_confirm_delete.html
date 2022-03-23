@@ -1,0 +1,10 @@
+{% block content %}
+
+<h1>delete question</h1>
+
+<p>are you sure you wannt to delete the question "{{question}}"?</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete.">
+</form>
+{% endblock %}

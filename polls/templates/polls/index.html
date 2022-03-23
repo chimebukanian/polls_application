@@ -3,9 +3,14 @@
 {% if latest_question_list %}
 <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <a href="{% url 'polls:modify_question' question.id %}">modify question</a>
+    <a href="{% url 'polls:delete_question' question.id %}">delete question</a>
+    <hr>
     {% endfor %}
+
 </ul>
 {% else %}
     <p>no  polls available</p>
 {% endif %}
+<a href="{% url 'polls:new_question' %}">create question</a>

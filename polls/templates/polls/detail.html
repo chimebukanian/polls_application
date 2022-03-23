@@ -8,8 +8,17 @@
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
+<ul>
+    <li>
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label  for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    <a href="{% url 'polls:modify_choice' choice.pk %}">modify choice</a>
+    <a href="{% url 'polls:delete_choice' choice.id %}">delete choice</a>
+    </li>   
+</ul>
 {% endfor %}
+
 <input type="submit" value="vote">
 </form>
+
+<a href="{% url 'polls:new_choice' question.question_text %}">create choice</a>

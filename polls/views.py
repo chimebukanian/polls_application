@@ -49,9 +49,12 @@ def vote(request, question_id):
 
 class CreateQuestion(CreateView):
     model=Question
+    fields='__all__'
     success_url=reverse_lazy('polls:index')
+
 class QuestionUpdate(UpdateView):
     model=Question
+    fields='__all__'
     success_url=reverse_lazy('polls:index')
     
 class QuestionDelete(DeleteView):
@@ -59,12 +62,20 @@ class QuestionDelete(DeleteView):
     success_url=reverse_lazy('polls:index')
 
 class CreateChoice(CreateView):
-    model=Question
+    model=Choice
+    fields='__all__'
     success_url=reverse_lazy('polls:index')
-class QuestionChoice(UpdateView):
-    model=Question
+
+    def get_initial(self):
+        initial=super().get_initial()
+        initial['question']=self.request.GET.get('question_text')
+        return initial
+
+class ChoiceUpdate(UpdateView):
+    model=Choice
+    fields='__all__'
     success_url=reverse_lazy('polls:index')
     
-class QuestionChoice(DeleteView):
-    model=Question
+class ChoiceDelete(DeleteView):
+    model=Choice
     success_url=reverse_lazy('polls:index')
