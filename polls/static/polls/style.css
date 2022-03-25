@@ -1,8 +1,40 @@
-li a{
-color:rgb(0, 66, 128);
+a{
 text-decoration: none;
 }
 
-body{
-background:white url("images/plank.png") no-repeat;
+
+.li{
+    margin-top: 25px;
 }
+
+.q-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;   
+    list-style-type: none;
+    color: white;
+}
+
+.q-list li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    text-align:center;
+    padding: 16px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.933);
+    border-radius: 18px;
+    border: 2px solid grey;
+    
+
+}
+
+.q-list li a, div{
+    color: white;
+}
+
+.q-list li a{
+    margin-bottom: 5px;
+}
+

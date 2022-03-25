@@ -1,6 +1,7 @@
+{% extends 'polls/base_generic.html' %}
+{% block content %}
+
 <h1>{{ question.question_text }}</h1>
-
-
 {% if error_message  %}
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}
@@ -22,3 +23,5 @@
 </form>
 
 <a href="{% url 'polls:new_choice' question.question_text %}">create choice</a>
+{% endblock %}
+

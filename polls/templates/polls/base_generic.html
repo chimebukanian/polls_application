@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    {% block title %}
+    <title>polls</title>
+    {% endblock %}
+    
+    <meta metacharset="utf-8">
+    <meta name="viewport" contains="width=device-width", initial-scale="1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+</head>
+<body>
+    <header>
+        {% block sidebar %}
+            <h1 class="welcome">Welcome to polls application</h1>
+            <hr>
+        {% endblock %}    
+    </header>
+
+    <main>        
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        &copy; polls services 2022.
+    </footer>
+</body>
+</html>
+
